@@ -1,0 +1,20 @@
+
+* To Dockerize our project
+    1- add Dockerfile
+    2- 
+
+
+
+* to ignore files when image createing we can use .dockerignore files
+
+
+* to sync between development and container (Hot Relaod) we can use Volumes when creating the container
+    Bind Mount Volumes
+    -v /Users/macbook/DockerLearning/App-Node:/app 
+    example:-
+        docker run --name express-node-app-container -v ${pwd}:/app -d -p 4000:4000 express-node-app 
+    to make sync readonly (from dev to container not reverces?)
+    docker run --name express-node-app-container -v ${pwd}:/app:ro -d -p 4000:4000 express-node-app 
+
+    ${pwd} print path
+
