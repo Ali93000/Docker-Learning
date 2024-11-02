@@ -18,3 +18,30 @@
 
     ${pwd} print path
 
+ 
+ * use of DockerCompose
+    1- create docker-compose.yml
+    2- write all instructions to build container
+    3- docker-compose up -d  (to build container using DockerCompose)
+    4- docker-compose down (to shutdown container)
+
+
+
+* to use environment varibles
+    a- with docker file
+        1- we can pass it in docker file  >>  ENV key=value
+        2- we can pass it using commond line >>  --env key=value
+            docker run --name express-node-app-container -d -v ${PWD}:/app:ro --env port=4000 --env Environment=development  -p 4000:4000 express-node-app 
+
+        3- we can pass it in commond line from a file   >>  --env-file ./.env
+            docker run --name express-node-app-container -d -v ${PWD}:/app:ro --env-file ./.env -p 4000:4000 express-node-app
+
+    b- with DockerCompose 
+        1- by add environment section
+        2- by add env_file section to get them from file
+
+
+
+* we can create docker-compose file foreach environment
+
+* we ca create generic docker compose file then create a file foreach environment
