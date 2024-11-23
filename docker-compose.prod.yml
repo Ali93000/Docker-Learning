@@ -1,4 +1,7 @@
 services:
   node-app:
+    build:
+      context: .
+      target: production
     environment:
       - Environment=production

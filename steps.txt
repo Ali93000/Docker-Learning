@@ -45,3 +45,10 @@
 * we can create docker-compose file foreach environment
 
 * we ca create generic docker compose file then create a file foreach environment
+
+
+* Working with Multi Stages
+    1- in docker file we define all stages base, development, staging and production
+    2- in DockerCompose file we pass target environment to create container 
+        context: .
+        target: production

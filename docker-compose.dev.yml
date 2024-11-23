@@ -1,5 +1,8 @@
 services:
   node-app:
+    build:
+      context: .
+      target: development
     volumes:
       - ./src:/app/src:ro
     environment:

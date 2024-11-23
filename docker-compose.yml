@@ -6,3 +6,27 @@ services:
       - "4000:4000"
     env_file:
       - ./.env
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - "27017:27017"
+  mongo-client:
+    image: mongo
+    command: sleep infinity
+    networks:
+      - default
+
+  redis:
+      image: redis
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
